@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import React from 'react';
 import WatchForm from './WatchForm/WatchForm';
 import WatchItem from './WatchItem/WatchItem';

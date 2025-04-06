@@ -11,13 +11,11 @@ function WatchForm({ handleAdd }) {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'timezone') {
-      if (value.length === 1) {
-        if (!regTimezone1.test(value)) return;
-      } else if (value.length > 1) {
-        if (!regTimezone2.test(value)) return;
+    const oneSymbol = value.length === 1 && !regTimezone1.test(value);
+    const severalSymbols = value.length > 1 && !regTimezone2.test(value);
+    if (name === 'timezone' && (oneSymbol || severalSymbols)) {
+	      return;
       }
-    }
 
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
   }
